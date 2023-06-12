@@ -1,0 +1,28 @@
+{
+  "name": "csv--table-converter",
+  "version": "1.0.0",
+  "description": "It's a web application that allows users to upload CSV (comma-separated values) files and convert them into tables. It provides various operations such as searching, sorting, and displaying columns as charts for better data understanding.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "csv",
+    "table",
+    "chart"
+  ],
+  "author": "Abhishek Kashyap",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "csv-parse": "^5.0.4",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.2.5",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.22"
+  }
+}
