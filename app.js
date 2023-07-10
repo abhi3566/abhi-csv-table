@@ -4,12 +4,25 @@ const app = express();
 const port = process.env.PORT || 8000;
 const router = require('./routes/index');
 const expressLayouts = require('express-ejs-layouts');
-const db = require('./config/mongoose');
 const viewPath = path.join(__dirname, './views');
 const assetsPath = path.join(__dirname, './assets');
 const session = require('express-session');
 const flash = require('connect-flash');
 const customMware = require('./config/flashWare');
+const mongoose = require('mongoose');
+
+require('dotenv').config();
+// Mongoose configuration
+const MONGOOSE_URI=process.env.MONGOOSE_URI
+mongoose.connect(MONGOOSE_URI,{ useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, "Error connecting to Database"));
+
+db.once('open', ()=>{
+    console.log("Successfully connected to Mongo Database");
+});
 
 // Static and express-ejs-layouts config.
 app.set('view engine', 'ejs');
